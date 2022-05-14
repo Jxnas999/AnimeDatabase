@@ -1,13 +1,44 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+
+  margin: 0px;
+
+  background-color: #130f40;
+  font-family: 'Lato' !important;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.anime--Card{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  font-size: 14px;
+  align-items: center;
+  margin: 0.5rem;
+}
+.anime--Card h1, img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.anime--Card h1, a{
+  text-align: center;
+  max-width: 200px;  
+  color: rgb(255, 255, 255);
+}
+.anime--Card div {
+  margin: 1rem;
+}
+.search-box{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.search-box input{
+  font-size: 2rem;
+  color: white;
 }
