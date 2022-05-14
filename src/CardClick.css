@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+}
+
+.Card--Click {
+    color: white;
+    display: flex;
+   
+    
+  }
+  .Card--Click img{
+    margin-top: 15%;
+    margin-left: 15%;
+    align-self: flex-start;
+  }
+
+.info{
+    margin-top: 15%;
+    margin-left: 10%;
+    line-height: 3rem;
+}
