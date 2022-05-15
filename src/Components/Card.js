@@ -9,7 +9,7 @@ export default function Card(props) {
         <h1 rel='noreferrer'>
           <p
             onClick={(e) => {
-              navigate(`/anime/${item.title}`);
+              navigate(`/anime/${item.mal_id}`);
             }}
           >
             {item.title}

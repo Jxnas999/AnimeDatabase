@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Card from "./Card";
+import { AnimeContext } from "../Contexts/Context";
 export default function Search() {
   const [search, setSearch] = useState(""); //Such Input
-  const [anime, setAnime] = useState([]); // Aktuelle Animes
-
+  //const [anime, setAnime] = useState([]); // Aktuelle Animes
+  const {anime, setAnime} = useContext(AnimeContext)
+  
   useEffect(() => {
     const options = {
       method: "GET",
