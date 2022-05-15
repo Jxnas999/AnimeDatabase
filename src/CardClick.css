@@ -19,3 +19,10 @@
     margin-left: 10%;
     line-height: 3rem;
 }
+
+.ranking{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
