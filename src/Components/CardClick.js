@@ -7,17 +7,17 @@ import { FaStar } from "react-icons/fa";
 export default function CardClick() {
   let { id } = useParams();
   let parseId = parseInt(id); // Convert to Integer, that comparision is possible
-
-  const { anime, setAnime } = useContext(AnimeContext);
+  console.log("mount");
+  const { anime } = useContext(AnimeContext);
   const [activeAnime, setActiveAnime] = useState([]);
-  console.log(anime);
+
   useEffect(() => {
-    anime.filter((item) => {
+    anime.forEach((item) => {
       if (item.mal_id === parseId) {
         return setActiveAnime(item);
       }
     });
-  }, []);
+  }, [anime, parseId]);
 
   return (
     <div className='Card--Click'>
@@ -38,16 +38,3 @@ export default function CardClick() {
     </div>
   );
 }
-
-/*
-<img src={anime.image_url} alt='Animes'></img>
-
-      <section className='info'>
-        <h1>{anime.title}</h1>
-        <p>
-          <a href={anime.url} target='_blank' rel='noreferrer'>
-            Learn More
-          </a>
-        </p>
-      </section>
-      */
