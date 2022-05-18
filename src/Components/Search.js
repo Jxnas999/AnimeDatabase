@@ -2,18 +2,19 @@ import React, { useEffect, useState, useContext } from "react";
 import Card from "./Card";
 import { AnimeContext } from "../Contexts/Context";
 import axios from "axios";
+
 export default function Search() {
   const [search, setSearch] = useState(""); //Such Input
   //const [anime, setAnime] = useState([]); // Aktuelle Animes
   const { anime, setAnime } = useContext(AnimeContext);
-  console.log("mount");
+
   useEffect(() => {
     const defaultOptions = {
       method: "GET",
       url: "https://jikan1.p.rapidapi.com/top/anime/1/upcoming",
       headers: {
         "X-RapidAPI-Host": "jikan1.p.rapidapi.com",
-        "X-RapidAPI-Key": `${process.env.REACT_APP_ANIMEAPI_KEY}`,
+        "X-RapidAPI-Key": `${process.env.REACT_APP_API_KEY}`,
       },
     };
     const searchOptions = {
@@ -22,7 +23,7 @@ export default function Search() {
       params: { q: `${search}` },
       headers: {
         "X-RapidAPI-Host": "jikan1.p.rapidapi.com",
-        "X-RapidAPI-Key": "8cc5ebdbc3msh1e688bb58631a99p173c54jsn8d2625b43db5",
+        "X-RapidAPI-Key": `${process.env.REACT_APP_API_KEY}`,
       },
     };
 
@@ -55,9 +56,11 @@ export default function Search() {
       <div className='search-box'>
         <input
           type='text'
+          className='form--input'
           placeholder='Type to Search...'
           value={search}
           onChange={(event) => setSearch(event.target.value)}
+          id='search'
         />
       </div>
       <Card animeList={anime} />

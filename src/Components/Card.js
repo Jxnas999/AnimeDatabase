@@ -13,6 +13,7 @@ export default function Card(props) {
             : item.title}
         </h3>
         <img src={item.image_url} alt='Animes'></img>
+
         <button
           onClick={(e) => {
             navigate(`/anime/${item.mal_id}`);
