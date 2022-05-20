@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Quicksand&display=swap");
+* {
+  margin: 0px;
+  color: white;
+  text-decoration: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Quicksand',Roboto, sans-serif;
+  font-weight: 700;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  /*background:linear-gradient(to left top, #000428,#004e92 ) ;*/
+  background: #7F7FD5;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, right top, left top, from(#91EAE4), color-stop(#86A8E7), to(#7F7FD5));
+  background: linear-gradient(to left, #91EAE4, #86A8E7, #7F7FD5);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: 400%;
+  -webkit-animation: bg-animation 10s infinite alternate;
+          animation: bg-animation 10s infinite alternate;
+}
+
+@-webkit-keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
+
+.anime--Card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.anime--div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 220px;
+  margin: 1.5rem;
+  position: relative;
+}
+
+.anime--div h3 {
+  overflow-wrap: break-word;
+}
+
+.anime--div img {
+  border-radius: 30px;
+}
+
+.anime--div h3 {
+  background-color: transparent;
+  text-shadow: 2px 2px #000000;
+  text-align: center;
+}
+
+.anime--div button {
+  position: absolute;
+  bottom: 20px;
+  left: 10px;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 10px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 18px;
+  border: none;
+  transition: box-shadow 0.2s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ed4dab), to(#0ca2ff));
+  background-image: linear-gradient(to right, #ed4dab, #0ca2ff);
+  background-size: 300%;
+  background-position: left;
+  color: #fff;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.anime--div button:hover {
+  background-position: right;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.search-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 1rem;
+}
+
+.search-box input {
+  width: 50%;
+  border: 10px hidden rgba(107, 17, 242, 0.854);
+  background-color: rgba(107, 17, 242, 0.854);
+  border-radius: 30px;
+  text-align: center;
+  font-size: 1.3rem;
+  padding: 12px;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.search-box input::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.851);
+}
+
+.search-box input:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.851);
+}
+
+.search-box input::-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.851);
+}
+
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.851);
+}
+
+.search-box input:hover::-webkit-input-placeholder {
+  color: transparent;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.search-box input:hover:-ms-input-placeholder {
+  color: transparent;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.search-box input:hover::-ms-input-placeholder {
+  color: transparent;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.search-box input:hover::placeholder {
+  color: transparent;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+/*# sourceMappingURL=index.css.map */

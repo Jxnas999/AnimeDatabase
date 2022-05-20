@@ -1,0 +1,114 @@
+* {
+  text-shadow: 1px 1px 1px black;
+}
+
+.Card--Click {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem 6rem 2rem 6rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wrapper {
+  width: 100vw;
+  height: 20vh;
+  margin-bottom: 2rem;
+}
+
+.info {
+  margin-left: 3rem;
+  line-height: 3rem;
+}
+
+.ranking {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.animeLink {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 10px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 18px;
+  border: none;
+  transition: box-shadow 0.2s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ed4dab), to(#0ca2ff));
+  background-image: linear-gradient(to right, #ed4dab, #0ca2ff);
+  background-size: 300%;
+  background-position: left;
+  color: #fff;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.animeLink:hover {
+  background-position: right;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.comment-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 4rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.comment-section textarea {
+  resize: none;
+  background-color: rgba(0, 0, 0, 0.37);
+  color: white;
+  width: 40%;
+  height: 6rem;
+  font-size: 1.4rem;
+  border-radius: 20px;
+}
+
+.comment-section textarea:focus {
+  outline: none;
+}
+
+.comment-section textarea::-webkit-scrollbar {
+  display: none;
+}
+/*# sourceMappingURL=CardClick.css.map */

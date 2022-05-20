@@ -1,40 +1,64 @@
-import React, { useState, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import "../CardClick.css";
+import React, { useState, useContext, useEffect, Component } from "react";
+import {} from "react-router-dom";
+import "../styles/CardClick.css";
 import { AnimeContext } from "../Contexts/Context";
 import { FaStar } from "react-icons/fa";
 
 export default function CardClick() {
-  let { id } = useParams();
+  //let { id } = useParams();
+  let id = window.location.href.split("/")[4];
   let parseId = parseInt(id); // Convert to Integer, that comparision is possible
-  console.log("mount");
   const { anime } = useContext(AnimeContext);
   const [activeAnime, setActiveAnime] = useState([]);
+  let localAnime;
 
   useEffect(() => {
-    anime.forEach((item) => {
-      if (item.mal_id === parseId) {
-        return setActiveAnime(item);
+    if (anime.length !== 0) {
+      anime.forEach((item) => {
+        if (item.mal_id === parseId) {
+          localAnime = item; //needs to be saved in a local value otherwise the context will not get updated and when the user reloads the page the activeAnime state is undefined but still shown
+          return setActiveAnime(item);
+        }
+      });
+
+      if (activeAnime) {
+        window.localStorage.setItem("ANIMES", JSON.stringify(localAnime));
       }
-    });
-  }, [anime, parseId]);
+    }
+    if (anime.length === 0) {
+      const data = window.localStorage.getItem("ANIMES");
+      setActiveAnime(JSON.parse(data));
+      console.log(activeAnime + "2");
+      console.log(anime.length);
+    }
+  }, [parseId]);
 
   return (
-    <div className='Card--Click'>
-      <img src={activeAnime.image_url} alt='Animes'></img>
+    <>
+      <div className='wrapper'></div>
+      <section className='Card--Click'>
+        <img src={activeAnime.image_url} alt='Animes'></img>
+        <section className='info'>
+          <h1>{activeAnime.title}</h1>
+          <section className='ranking'>
+            <FaStar id='icon' />
+            <p>Popularity : {activeAnime.rank}</p>
+          </section>
 
-      <section className='info'>
-        <h1>{activeAnime.title}</h1>
-        <section className='ranking'>
-          <FaStar id='icon' />
-          <p>Popularity : {activeAnime.rank}</p>
-        </section>
-        <p>
-          <a href={activeAnime.url} target='_blank' rel='noreferrer'>
+          <a
+            className='animeLink'
+            href={activeAnime.url}
+            target='_blank'
+            rel='noreferrer'
+          >
             Learn More
           </a>
-        </p>
+        </section>
       </section>
-    </div>
+      <div className='comment-section'>
+        <h1 className='comments'>Comments</h1>
+        <textarea cols='10' rows='5'></textarea>
+      </div>
+    </>
   );
 }
