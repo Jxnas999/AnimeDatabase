@@ -10,6 +10,10 @@ export default function CardClick() {
   let parseId = parseInt(id); // Convert to Integer, that comparision is possible
   const { anime } = useContext(AnimeContext);
   const [activeAnime, setActiveAnime] = useState([]);
+  const [comment, setComment] = useState("");
+  const [commentArray, setCommentArray] = useState([
+    { username: "", comment: "" },
+  ]);
   let localAnime;
 
   useEffect(() => {
@@ -28,11 +32,22 @@ export default function CardClick() {
     if (anime.length === 0) {
       const data = window.localStorage.getItem("ANIMES");
       setActiveAnime(JSON.parse(data));
-      console.log(activeAnime + "2");
-      console.log(anime.length);
     }
   }, [parseId]);
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    setCommentArray((prevComment) =>
+      prevComment.concat({ username: "", comment: comment })
+    );
+  }
+  const commentMap = commentArray.map((item) => {
+    return (
+      <div className='usersComment' key={parseId}>
+        <p>{item.comment}</p>
+      </div>
+    );
+  });
   return (
     <>
       <div className='wrapper'></div>
@@ -51,13 +66,27 @@ export default function CardClick() {
             target='_blank'
             rel='noreferrer'
           >
-            Learn More
+            More
           </a>
         </section>
       </section>
       <div className='comment-section'>
         <h1 className='comments'>Comments</h1>
-        <textarea cols='10' rows='5'></textarea>
+        <section className='button-section'>
+          <textarea
+            cols='10'
+            rows='5'
+            onChange={(e) => setComment(e.target.value)}
+            value={comment}
+          ></textarea>
+          <input
+            type='button'
+            className='comment-btn'
+            onClick={handleSubmit}
+            value='Comment'
+          />
+        </section>
+        {commentMap}
       </div>
     </>
   );

@@ -1,5 +1,6 @@
 * {
   text-shadow: 1px 1px 1px black;
+  max-width: 100%;
 }
 
 .Card--Click {
@@ -92,23 +93,72 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
 }
 
-.comment-section textarea {
+.button-section {
+  position: relative;
+}
+
+.button-section textarea {
+  position: relative;
   resize: none;
   background-color: rgba(0, 0, 0, 0.37);
   color: white;
-  width: 40%;
+  width: 50vw;
   height: 6rem;
   font-size: 1.4rem;
   border-radius: 20px;
 }
 
-.comment-section textarea:focus {
+.button-section textarea:focus {
   outline: none;
 }
 
-.comment-section textarea::-webkit-scrollbar {
+.button-section textarea::-webkit-scrollbar {
   display: none;
+}
+
+.button-section input {
+  cursor: pointer;
+  position: absolute;
+  border: none;
+  outline: none;
+  bottom: 4px;
+  right: 0px;
+  padding: 0.4rem;
+  border-radius: 4px;
+  transition: box-shadow 0.2s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ed4dab), to(#0ca2ff));
+  background-image: linear-gradient(to right, #ed4dab, #0ca2ff);
+  background-size: 300%;
+  background-position: left;
+  color: #fff;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.button-section input:hover {
+  background-position: right;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.usersComment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 3rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  max-width: 50vw;
 }
 /*# sourceMappingURL=CardClick.css.map */
