@@ -1,22 +1,22 @@
-import React, { useState, useContext, useEffect, Component } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {} from "react-router-dom";
+import Axios from "axios";
 import "../styles/CardClick.css";
 import { AnimeContext } from "../Contexts/Context";
 import { FaStar } from "react-icons/fa";
 
 export default function CardClick() {
-  //let { id } = useParams();
-  let id = window.location.href.split("/")[4];
+  let id = window.location.href.split("/")[4]; //Get ID
   let parseId = parseInt(id); // Convert to Integer, that comparision is possible
   const { anime } = useContext(AnimeContext);
   const [activeAnime, setActiveAnime] = useState([]);
   const [comment, setComment] = useState("");
-  const [commentArray, setCommentArray] = useState([
-    { username: "", comment: "" },
-  ]);
-  let localAnime;
+  const [commentArray, setCommentArray] = useState([{}]);
 
   useEffect(() => {
+    //Save Anime locally  in case of reload
+    let localAnime;
+
     if (anime.length !== 0) {
       anime.forEach((item) => {
         if (item.mal_id === parseId) {
@@ -24,7 +24,6 @@ export default function CardClick() {
           return setActiveAnime(item);
         }
       });
-
       if (activeAnime) {
         window.localStorage.setItem("ANIMES", JSON.stringify(localAnime));
       }
@@ -33,21 +32,49 @@ export default function CardClick() {
       const data = window.localStorage.getItem("ANIMES");
       setActiveAnime(JSON.parse(data));
     }
+
+    //Display all Comments from Databank
+    Axios.get("http://localhost:3001/comments").then(function (response) {
+      // handle success
+      response.data.forEach((item) => {
+        if (item.animeId === parseId) {
+          let nObj = {
+            username: item.user,
+            comment: item.text,
+            anime: parseId,
+            userId: item._id,
+          };
+
+          setCommentArray((oldArray) => [...oldArray, nObj]);
+        }
+      });
+    });
+    console.log(commentArray);
+    // eslint-disable-next-line
   }, [parseId]);
 
-  function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setCommentArray((prevComment) =>
-      prevComment.concat({ username: "", comment: comment })
-    );
-  }
+
+    Axios.post("http://localhost:3001/comments", {
+      text: comment,
+      user: "admin",
+      anime: parseId,
+    })
+      .then(console.log("worked"))
+
+      .catch(() => {
+        alert("failed");
+      });
+  };
   const commentMap = commentArray.map((item) => {
     return (
-      <div className='usersComment' key={parseId}>
+      <div className='usersComment' key={commentArray.userId}>
         <p>{item.comment}</p>
       </div>
     );
   });
+
   return (
     <>
       <div className='wrapper'></div>
